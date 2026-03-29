@@ -141,6 +141,7 @@
 </section>
 
 <div class="carrito" id="carrito">
+  <span class="cerrar" onclick="toggleCarrito()">✕</span>
   <h2>Carrito</h2>
   <div id="items"></div>
   <h3>Total: $<span id="total">0</span></h3>
@@ -172,16 +173,17 @@ function actualizar(){
   carrito.forEach(p=> mensaje+=`${p.nombre} - $${p.precio}%0A`);
   mensaje+=`Total: $${total}`;
 
-  document.getElementById('comprar').href=`https://wa.me/5492945468029?text=${mensaje}`;
+  document.getElementById('comprar').href=`https://wa.me/549XXXXXXXXXX?text=${mensaje}`;
 }
 
 function toggleCarrito(){
   let c=document.getElementById('carrito');
-  c.style.display = c.style.display==='block' ? 'none' : 'block';
+  c.classList.toggle('active');
 }
 </script>
 
 </body>
 </html>
+
 
 
