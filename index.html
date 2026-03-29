@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurora Bags</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f172a;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(90deg, #0f172a, #1e293b);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #facc15;
+    }
+
+    header p {
+      margin-top: 10px;
+      color: #cbd5f5;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #1e293b;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card h3 {
+      margin: 0;
+      color: #facc15;
+    }
+
+    .precio {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #25D366;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #020617;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>👜 Aurora Bags</h1>
+  <p>Carteras de lujo en tendencia</p>
+</header>
+
+<section class="productos">
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x300" alt="Cartera Eloisa">
+    <div class="card-content">
+      <h3>Shoulderbag Eloisa</h3>
+      <p class="precio">$48.500</p>
+      <a class="btn" href="https://wa.me/549XXXXXXXXXX?text=Hola!%20Quiero%20la%20Eloisa" target="_blank">Comprar</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x300" alt="Cartera Morgan">
+    <div class="card-content">
+      <h3>Shoulderbag Morgan</h3>
+      <p class="precio">$27.500</p>
+      <a class="btn" href="https://wa.me/549XXXXXXXXXX?text=Hola!%20Quiero%20la%20Morgan" target="_blank">Comprar</a>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <p>📦 Envíos a todo el país</p>
+  <p>💬 Pedí el tuyo por WhatsApp</p>
+</footer>
+
+</body>
+</html>
 
