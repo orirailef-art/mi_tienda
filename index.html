@@ -6,172 +6,103 @@
   <title>Aurora Bags</title>
 
    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  
+
   <style>
-     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0a0a0a;
-      color: #f5f5f5;
+      position:sticky; top:0; background:#0a0a0a;
     }
 
-    header {
-      text-align: center;
-      padding: 30px 20px;
-      background: linear-gradient(90deg, #0f172a, #1e293b);
+    nav h1 { font-family:'Playfair Display'; letter-spacing:2px; }
+
+    nav input {
+      padding:8px; border-radius:20px; border:none; outline:none;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px 30px;
+    header { text-align:center; padding:40px 20px; }
+
+    .categorias {
+      display:flex; justify-content:center; gap:15px; flex-wrap:wrap;
     }
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5em;
-      letter-spacing: 3px;
-      margin: 0;
+    .categorias button {
+      background:none; border:1px solid #444; color:#fff;
+      padding:8px 15px; border-radius:20px; cursor:pointer;
     }
-
-    header p {
-      margin-top: 10px;
-      color: #aaa;
-      font-size: 1em;
-    }
-
-     .banner {
-      width: 100%;
-      height: 300px;
-      background: url('banner.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .banner h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2em;
-      background: rgba(0,0,0,0.5);
-      padding: 10px 20px;
-      border-radius: 10px;
-    }
-
 
     .productos {
-     display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 50px;
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px; padding:30px;
     }
 
     .card {
-      background-color: #111;
-      border-radius: 20px;
-      overflow: hidden;
-      transition: 0.3s;
+      background:#111; border-radius:15px; overflow:hidden;
+      transition:.3s; cursor:pointer;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
+    .card:hover { transform:translateY(-5px); }
+
+    .card img { width:100%; height:260px; object-fit:cover; }
+
+    .card-content { padding:15px; text-align:center; }
+
+    .precio { color:#d4af37; }
+
+    .old-price {
+      text-decoration:line-through; color:#888; font-size:0.9em;
     }
 
-    .card img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
+    .badge {
+      position:absolute; background:red; padding:5px 10px;
+      font-size:0.8em; top:10px; left:10px;
+      border-radius:10px;
     }
 
-    .card-content {
-      padding: 20px;
-      text-align: center;
+    .detalle {
+      display:none; position:fixed; top:0; left:0;
+      width:100%; height:100%; background:rgba(0,0,0,0.95);
+      justify-content:center; align-items:center;
     }
 
-    .card h3 {
-     font-family: 'Playfair Display', serif;
-      font-size: 1.3em;
-      margin: 0;
-    }
-
-    .precio {
-      margin: 10px 0;
-      color: #d4af37;
-      font-weight: 500;
+    .detalle-content {
+      background:#111; padding:30px; border-radius:20px;
+      max-width:500px; text-align:center;
     }
 
     .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 20px;
-      border: 1px solid #d4af37;
-      color: #d4af37;
-      text-decoration: none;
-      border-radius: 30px;
-      transition: 0.3s;
+      margin-top:15px; display:inline-block; padding:10px 20px;
+      border:1px solid #d4af37; color:#d4af37; text-decoration:none;
+      border-radius:30px;
     }
 
-    .btn:hover {
-      background-color: #d4af37;
-      color: #000;
-    }
-
-    .sobre {
-      text-align: center;
-      padding: 60px 30px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .sobre h2 {
-      font-family: 'Playfair Display', serif;
-      margin-bottom: 15px;
-    }
-
-    .sobre p {
-      color: #bbb;
-      line-height: 1.6;
-    }
-
-    .redes {
-      text-align: center;
-      padding: 40px;
-    }
-
-    .redes a {
-      margin: 0 15px;
-      color: #d4af37;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-
-    footer {
-     text-align: center;
-      padding: 30px;
-      background-color: #050505;
-      font-size: 0.9em;
-      color: #888;
-    }
+    footer { text-align:center; padding:30px; color:#888; }
   </style>
+ 
 </head>
 <body>
 
-<header>
+<nav>
   <h1>AURORA</h1>
-  <p>Carteras en tendencia</p>
+  <input type="text" placeholder="Buscar..." onkeyup="buscar(this.value)">
+</nav>
+
+<header>
+  <p>Elegancia en cada detalle</p>
 </header>
-
-  <div class="banner">
-  <h2>Nueva Colección</h2>
-</div>
   
-<section class="productos">
+<div class="categorias">
+  <button onclick="filtrar('all')">Todas</button>
+  <button onclick="filtrar('shoulder')">Shoulderbags</button>
+  <button onclick="filtrar('tote')">Tote</button>
+</div>
 
-  <div class="card">
-    <img src="Eloisa.png" alt="Cartera Eloisa">
+<section class="productos" id="productos">
+
+<div class="card shoulder" onclick="abrirDetalle('Shoulderbag Eloisa','Elegante y versátil','$48.500')">
+    <div class="badge">-20%</div>
+    <img src="eloisa.jpg">
     <div class="card-content">
       <h3>Shoulderbag Eloisa Negro</h3>
-      <p class="precio">$32.000</p>
-      <a class="btn" href="https://wa.me/5492945468029?text=Hola!%20Quiero%20la%20Eloisa" target="_blank">Comprar</a>
-    </div>
+      <p class="old-price">$60.000</p>
+      <p class="precio">$48.500</p
   </div>
   
   <div class="card">
@@ -219,26 +150,58 @@
     </div>
   </div>
 
-   <div class="card">
-    <img src="brillos.jpg" alt="Tote Bag Brillos">
-    <div class="card-content">
-      <h3>Tote Bag Brillos</h3>
+  <div class="card tote" onclick="abrirDetalle('Tote Brillos','Diseño con detalles únicos','$XX.XXX')">
+  <img src="brillos.jpg">
+  <div class="card-content">
+    <h3>Tote Bag Brillos</h3>
       <p class="precio">$37.500</p>
       <a class="btn" href="https://wa.me/5492945468029?text=Hola!%20Quiero%20la%20Tote%20Brillos" target="_blank">Comprar</a>
     </div>
   </div>
 
-
-<section class="redes">
-  <a href="https://instagram.com/aurorabagss1" target="_blank">Instagram</a>
-  <a href="https://facebook.com/aurora.bags.25149" target="_blank">Facebook</a>
-</section>
-
+<div class="detalle" id="detalle">
+  <div class="detalle-content">
+    <h2 id="titulo"></h2>
+    <p id="desc"></p>
+    <p id="precio"></p>
+    <a class="btn" href="https://wa.me/549XXXXXXXXXX" target="_blank">Comprar</a>
+    <br><br>
+    <button onclick="cerrarDetalle()">Cerrar</button>
+  </div>
+</div>
 <footer>
-  <p>Envíos a todo el país</p>
-  <p>Comprá con seña y asegurá tu producto</p>
+  <p>Stock disponible • Envíos a todo el país</p>
 </footer>
+
+<script>
+function abrirDetalle(titulo, desc, precio){
+  document.getElementById('detalle').style.display='flex';
+  document.getElementById('titulo').innerText=titulo;
+  document.getElementById('desc').innerText=desc;
+  document.getElementById('precio').innerText=precio;
+}
+
+function cerrarDetalle(){
+  document.getElementById('detalle').style.display='none';
+}
+
+function filtrar(categoria){
+  let productos=document.querySelectorAll('.card');
+  productos.forEach(p=>{
+    p.style.display = (categoria==='all' || p.classList.contains(categoria)) ? 'block':'none';
+  });
+}
+
+function buscar(texto){
+  texto=texto.toLowerCase();
+  document.querySelectorAll('.card').forEach(p=>{
+    let nombre=p.innerText.toLowerCase();
+    p.style.display = nombre.includes(texto)?'block':'none';
+  });
+}
+</script>
 
 </body>
 </html>
+
 
