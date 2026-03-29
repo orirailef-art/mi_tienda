@@ -43,7 +43,7 @@
     .card:hover { transform:translateY(-5px); }
 
     .card img {
-      width:100%; height:200px; object-fit:cover;
+      width:100%; height:150px; object-fit:cover;
     }
 
     .card-content {
@@ -70,6 +70,12 @@
     .cerrar {
       cursor:pointer; float:right; font-weight:bold;
     }
+
+    @media (max-width: 768px) {
+  .productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
  </style>
   
 </head>
