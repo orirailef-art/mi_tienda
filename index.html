@@ -21,12 +21,18 @@
 
     .carrito-btn { cursor:pointer; font-weight:450; }
 
-    .productos {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
-      gap:20px;
-      padding:20px;
-    }
+     .productos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap:20px;
+        padding:20px;
+      }
+
+@media (max-width: 768px) {
+  .productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
     .card {
       background:#fff; border-radius:12px; overflow:hidden;
@@ -37,7 +43,7 @@
     .card:hover { transform:translateY(-5px); }
 
     .card img {
-      width:50%; height:100px; object-fit:cover;
+      width:100%; height:200px; object-fit:cover;
     }
 
     .card-content {
