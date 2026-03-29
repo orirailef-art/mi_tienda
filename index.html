@@ -38,22 +38,14 @@
   <div class="carrito-btn" onclick="toggleCarrito()">🛒 (<span id="count">0</span>)</div>
 </nav>
 
-  
-<div class="categorias">
-  <button onclick="filtrar('all')">Todas</button>
-  <button onclick="filtrar('shoulder')">Shoulderbags</button>
-  <button onclick="filtrar('tote')">Tote</button>
-</div>
+<section class="productos">
 
-<section class="productos" id="productos">
-
-<div class="card shoulder" onclick="abrirDetalle('Shoulderbag Eloisa','Elegante y versátil','$48.500')">
-    <div class="badge">-20%</div>
-    <img src="eloisa.jpg">
-    <div class="card-content">
+<div class="card">
+  <img src="eloisa.jpg">
+  <div class="card-content">
       <h3>Shoulderbag Eloisa Negro</h3>
-      <p class="old-price">$60.000</p>
-      <p class="precio">$48.500</p
+      <p class="old-price">$32.000</p>
+    <button class="btn" onclick="agregar('Eloisa',32000)">Agregar</button>
   </div>
   
 <div class="card shoulder" onclick="abrirDetalle('Shoulderbag Eloisa','Elegante y versátil','$32.000')">
