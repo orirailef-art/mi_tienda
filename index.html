@@ -102,45 +102,46 @@
     </div>
   </div>
 
-<div class="detalle" id="detalle">
-  <div class="detalle-content">
-    <h2 id="titulo"></h2>
-    <p id="desc"></p>
-    <p id="precio"></p>
-    <a class="btn" href="https://wa.me/5492945468029" target="_blank">Comprar</a>
-    <br><br>
-    <button onclick="cerrarDetalle()">Cerrar</button>
-  </div>
+</section>
+
+<div class="carrito" id="carrito">
+  <h2>Carrito</h2>
+  <div id="items"></div>
+  <h3>Total: $<span id="total">0</span></h3>
+  <a id="comprar" class="btn" target="_blank">Finalizar compra</a>
 </div>
-<footer>
-  <p>Esquel-Chubut • Envíos a todo el país</p>
-</footer>
 
 <script>
-function abrirDetalle(titulo, desc, precio){
-  document.getElementById('detalle').style.display='flex';
-  document.getElementById('titulo').innerText=titulo;
-  document.getElementById('desc').innerText=desc;
-  document.getElementById('precio').innerText=precio;
+let carrito=[];
+
+function agregar(nombre, precio){
+  carrito.push({nombre, precio});
+  actualizar();
 }
 
-function cerrarDetalle(){
-  document.getElementById('detalle').style.display='none';
-}
+function actualizar(){
+  let items=document.getElementById('items');
+  let total=0;
+  items.innerHTML='';
 
-function filtrar(categoria){
-  let productos=document.querySelectorAll('.card');
-  productos.forEach(p=>{
-    p.style.display = (categoria==='all' || p.classList.contains(categoria)) ? 'block':'none';
+  carrito.forEach(p=>{
+    total+=p.precio;
+    items.innerHTML += `<p>${p.nombre} - $${p.precio}</p>`;
   });
+
+  document.getElementById('total').innerText=total;
+  document.getElementById('count').innerText=carrito.length;
+
+  let mensaje='Hola! Quiero comprar:%0A';
+  carrito.forEach(p=> mensaje+=`${p.nombre} - $${p.precio}%0A`);
+  mensaje+=`Total: $${total}`;
+
+  document.getElementById('comprar').href=`https://wa.me/5492945468029?text=${mensaje}`;
 }
 
-function buscar(texto){
-  texto=texto.toLowerCase();
-  document.querySelectorAll('.card').forEach(p=>{
-    let nombre=p.innerText.toLowerCase();
-    p.style.display = nombre.includes(texto)?'block':'none';
-  });
+function toggleCarrito(){
+  let c=document.getElementById('carrito');
+  c.style.display = c.style.display==='block' ? 'none' : 'block';
 }
 </script>
 
