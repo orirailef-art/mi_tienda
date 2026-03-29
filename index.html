@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aurora Bags</title>
 
-   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  
   <style>
     body { margin:0; font-family:'Poppins',sans-serif; background:#f5f5f5; color:#111; }
 
@@ -19,20 +18,20 @@
 
     h1 { font-family:'Playfair Display'; letter-spacing:2px; }
 
-    .carrito-btn { cursor:pointer; font-weight:450; }
+    .carrito-btn { cursor:pointer; }
 
-     .productos {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap:20px;
-        padding:20px;
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:20px;
+      padding:20px;
+    }
+
+    @media (max-width: 768px) {
+      .productos {
+        grid-template-columns: repeat(2, 1fr);
       }
-
-@media (max-width: 768px) {
-  .productos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+    }
 
     .card {
       background:#fff; border-radius:12px; overflow:hidden;
@@ -43,7 +42,7 @@
     .card:hover { transform:translateY(-5px); }
 
     .card img {
-      width:100%; height:200px; object-fit:cover;
+      width:100%; height:180px; object-fit:cover;
     }
 
     .card-content {
@@ -55,13 +54,16 @@
     .card p { margin:5px 0; font-size:0.9em; }
 
     .btn {
-      border:1px solid #000; padding:6px 10px; cursor:pointer;
-      background:none; border-radius:20px; font-size:0.8em;
+      border:1px solid #000; padding:6px 10px;
+      cursor:pointer; background:none;
+      border-radius:20px; font-size:0.8em;
     }
 
     .carrito {
-      position:fixed; right:-320px; top:0; width:300px; height:100%;
-      background:#fff; padding:20px; transition:0.3s;
+      position:fixed; right:-320px; top:0;
+      width:300px; height:100%;
+      background:#fff; padding:20px;
+      transition:0.3s;
       box-shadow:-5px 0 15px rgba(0,0,0,0.1);
     }
 
@@ -70,15 +72,9 @@
     .cerrar {
       cursor:pointer; float:right; font-weight:bold;
     }
-
-    @media (max-width: 768px) {
-  .productos {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
- </style>
-  
+  </style>
 </head>
+
 <body>
 
 <nav>
@@ -88,65 +84,66 @@
 
 <section class="productos">
 
-<div class="card">
-  <img src="Eloisa.png">
-  <div class="card-content">
+  <div class="card">
+    <img src="Eloisa.png">
+    <div class="card-content">
       <h3>Shoulderbag Eloisa Negro</h3>
-      <p class="old-price">$32.000</p>
-    <button class="btn" onclick="agregar('Eloisa',32000)">Agregar</button>
-  </div>
-  
-<div class="card">
-  <img src="eloisaC.png">
-  <div class="card-content">
-      <h3>Shoulderbag Eloisa Cherry</h3>
-       <p class="old-price">$32.000</p>
-    <button class="btn" onclick="agregar('Eloisa',32000)">Agregar</button>
+      <p>$32.000</p>
+      <button class="btn" onclick="agregar('Eloisa Negro',32000)">Agregar</button>
     </div>
   </div>
-  
+
   <div class="card">
-  <img src="Morgan.jpg">
+    <img src="eloisaC.png">
+    <div class="card-content">
+      <h3>Shoulderbag Eloisa Cherry</h3>
+      <p>$32.000</p>
+      <button class="btn" onclick="agregar('Eloisa Cherry',32000)">Agregar</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="Morgan.jpg">
     <div class="card-content">
       <h3>Shoulderbag Morgan</h3>
-      <p class="precio">$27.500</p>
-       <button class="btn" onclick="agregar('Morgan',27500)">Agregar</button>
+      <p>$27.500</p>
+      <button class="btn" onclick="agregar('Morgan',27500)">Agregar</button>
     </div>
   </div>
 
   <div class="card">
-    <img src="chicago.jpg" >
+    <img src="chicago.jpg">
     <div class="card-content">
       <h3>Bolso Chicago</h3>
-      <p class="precio">$27.000</p>
-       <button class="btn" onclick="agregar('Chicago',27000)">Agregar</button>
-    </div>
-  </div>
-
-<div class="card">
-  <img src="erin.png" >
-    <div class="card-content">
-      <h3>Shoulderbag Erin</h3>
-      <p class="precio">$29.500</p>
-       <button class="btn" onclick="agregar('Erin',29500)">Agregar</button>
-    </div>
-  </div>
-
-<div class="card">
-  <img src="nova.jpg" >
-    <div class="card-content">
-      <h3>Shoulderbag Nova</h3>
-      <p class="precio">$32.000</p>
-       <button class="btn" onclick="agregar('Nova',32000)">Agregar</button>
+      <p>$27.000</p>
+      <button class="btn" onclick="agregar('Chicago',27000)">Agregar</button>
     </div>
   </div>
 
   <div class="card">
-  <img src="brillos.jpg">
-  <div class="card-content">
-    <h3>Tote Bag Brillos</h3>
-      <p class="precio">$37.500</p>
-     <button class="btn" onclick="agregar('Brillos',37500)">Agregar</button>
+    <img src="erin.png">
+    <div class="card-content">
+      <h3>Shoulderbag Erin</h3>
+      <p>$29.500</p>
+      <button class="btn" onclick="agregar('Erin',29500)">Agregar</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="nova.jpg">
+    <div class="card-content">
+      <h3>Shoulderbag Nova</h3>
+      <p>$32.000</p>
+      <button class="btn" onclick="agregar('Nova',32000)">Agregar</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="brillos.jpg">
+    <div class="card-content">
+      <h3>Tote Bag Brillos</h3>
+      <p>$37.500</p>
+      <button class="btn" onclick="agregar('Brillos',37500)">Agregar</button>
     </div>
   </div>
 
@@ -185,17 +182,13 @@ function actualizar(){
   carrito.forEach(p=> mensaje+=`${p.nombre} - $${p.precio}%0A`);
   mensaje+=`Total: $${total}`;
 
-  document.getElementById('comprar').href=`https://wa.me/549XXXXXXXXXX?text=${mensaje}`;
+  document.getElementById('comprar').href=`https://wa.me/5492945468029?text=${mensaje}`;
 }
 
 function toggleCarrito(){
-  let c=document.getElementById('carrito');
-  c.classList.toggle('active');
+  document.getElementById('carrito').classList.toggle('active');
 }
 </script>
 
 </body>
 </html>
-
-
-
